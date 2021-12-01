@@ -7,9 +7,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
 	.then(r => r.json())
 	.then(r => {
-		pokemons.forEach(pokemon => {
+		let result = r.results;
+		result.forEach(pokemons => {
 			let list = document.createElement('li');
-			list.innerText = pokemon.name;
+			list.innerText = pokemons.name;
 			ul.appendChild(list);
 		})
 	})
